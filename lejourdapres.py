@@ -24,7 +24,7 @@ class Entreprise():
         return self.__employees
 
     
-    def destroyChigago(self):
+    def destroyChicago(self):
         del self.__locations[0]
 
 
@@ -97,7 +97,7 @@ if __name__ == "__main__":
     companyInformationDisplay()
 
     #Le scenarion catastrophe, Chicago est détruite !!!! NAAAAAAAA ... enfaite si ..
-    myCompany.destroyChigago()
+    myCompany.destroyChicago()
 
     #Je réimprime la liste de ce qu'il reste du SHIELD
     companyInformationDisplay()
