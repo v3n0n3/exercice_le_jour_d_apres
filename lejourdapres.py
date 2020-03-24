@@ -23,6 +23,10 @@ class Entreprise():
     def getEmployees(self):
         return self.__employees
 
+    
+    def test(self):
+        del self.__locations[0]
+
 
 class Ville():
     def __init__(self, cp, city, building):
@@ -68,17 +72,32 @@ class Employe():
     def getFirstName(self):
         return self.__firstName
 
-#Je créer ma compagnie "The shield"
-myCompany = Entreprise("The Shield")
 
-#Voici mes différentes localisation dans le pays et leur batiments
-print("Locations and their buildings :")
-for myCities in myCompany.getLocations:
-    print(myCities.getCity, " ", myCities.getPostalCode, ":")
-    for myBuilding in myCities.getBuilding:
-        print(myBuilding.getName, " ", myBuilding.getAddr)
+def companyInformationDisplay():
+    #Impression du nom de la compagnie et du numéro de TVA
+    print("\n" * 1 ,"My company name : ",myCompany.getName, " VAT n° :", myCompany.getVAT)
+    #Voici mes différentes localisation dans le pays et leur batiments
+    print("Locations and their buildings :")
+    for myCities in myCompany.getLocations:
+        print(" " *2 , myCities.getCity, " ", myCities.getPostalCode, ":")
+        for myBuilding in myCities.getBuilding:
+            print(" " *6 ,myBuilding.getName, " ", myBuilding.getAddr)
 
-#Recapitulatif des employés
-print("Employees list : ")
-for myEmployee in myCompany.getEmployees:
-    print(myEmployee.getName, " ", myEmployee.getFirstName)
+    #Recapitulatif des employés
+    print("Employees list : ")
+    for myEmployee in myCompany.getEmployees:
+        print(" " *3 , myEmployee.getName, " ", myEmployee.getFirstName)
+
+
+if __name__ == "__main__":
+    #Je créer ma compagnie "The shield"
+    myCompany = Entreprise("The Shield")
+
+    #On check la compagnie
+    companyInformationDisplay()
+
+    #Le scenarion catastrophe, Chicago est détruite !!!! NAAAAAAAA ... enfaite si ..
+    myCompany.test()
+
+    #Je réimprime la liste de ce qu'il reste du SHIELD
+    companyInformationDisplay()
